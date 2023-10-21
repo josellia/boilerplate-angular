@@ -1,0 +1,10 @@
+@import '../assets/style-guide/global';
+
+.content {
+    background-color: $bg;
+    padding: 2rem;
+    height: calc(100vh - 64px);
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}

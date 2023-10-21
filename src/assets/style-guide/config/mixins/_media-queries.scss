@@ -1,0 +1,60 @@
+$screen-sm: 390px;
+$screen-md: 768px;
+$screen-lg: 1024px;
+$screen-xl: 1280px;
+$screen-2xl: 1640px;
+$screen-3xl: 1920px;
+
+
+@mixin screen-sm {
+    @media only screen and (max-width: $screen-sm) {
+      @content;
+    }
+  }
+
+  @mixin screen-md {
+    @media only screen and (max-width: $screen-md) {
+      @content;
+    }
+  }
+
+  @mixin screen-lg {
+    @media only screen and  (min-width: $screen-lg) {
+      @content;
+    }
+  }
+
+  @mixin screen-xl {
+    @media only screen and (max-width: $screen-xl) {
+      @content;
+    }
+  }
+
+  @mixin screen-2xl {
+    @media only screen and (min-width: $screen-2xl) {
+      @content;
+    }
+  }
+
+  @mixin screen-3xl {
+    @media only screen and (min-width: $screen-3xl) {
+      @content;
+    }
+  }
+
+  $breakpoints: (
+    'mobile-landscape': 576px,
+    'tablet': 768px,
+    'tablet-landscape': 992px,
+    'desktop': 1200px
+  );
+
+  @mixin media-query {
+    @if map-has-key($breakpoints, $breakpoint) {
+      @media (min-width: map-get($breakpoints, $breakpoint)) {
+        @content;
+      }
+    } @else {
+      @warn "Sorry, no value from `#{$breakpoint}`. The available breackpoints are: #{map-keys($breakpoints)}.";
+    }
+  }
